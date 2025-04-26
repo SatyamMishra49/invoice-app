@@ -3,6 +3,15 @@ import { requireUser } from '../utils/hook';
 import Logo from '@/public/Logo.svg';
 import Image from 'next/image';
 import { DashboardLinks } from '../components/DashboardLinks';
+import { GitMerge, LogOut, User } from '@deemlol/next-icons';
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { Button } from '@/components/ui/button';
+import { HomeIcon } from 'lucide-react';
 
 export default async function DashboardLayout({
     children,
@@ -29,6 +38,31 @@ export default async function DashboardLayout({
                             </nav>
                         </div>
                     </div>
+                </div>
+                <div className="flex flex-col">
+                    <header className="flex h-14 items-center gap-4 px-4 lg:h-[60px] lg:px-6">
+                        <div className="flex items-center ml-auto">
+                            <DropdownMenu>
+                                <DropdownMenuTrigger asChild>
+                                    <Button
+                                        className="h-11 w-11 rounded-full"
+                                        variant="outline"
+                                    >
+                                        <User color="blue" size={30}></User>
+                                    </Button>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent className="shadow-sm">
+                                    <DropdownMenuItem>
+                                        <GitMerge></GitMerge>Invoice
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem>
+                                        <LogOut />
+                                        Logout
+                                    </DropdownMenuItem>
+                                </DropdownMenuContent>
+                            </DropdownMenu>
+                        </div>
+                    </header>
                 </div>
             </div>
         </>
