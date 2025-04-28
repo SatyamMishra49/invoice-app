@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { requireUser } from '../utils/hook';
-import Logo from '@/public/Logo.svg';
+import Logo from '@/public/LogoLockup.svg';
 import Image from 'next/image';
 import { DashboardLinks } from '../components/DashboardLinks';
 import { GitMerge, LogOut, User } from '@deemlol/next-icons';
@@ -11,7 +11,6 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { HomeIcon } from 'lucide-react';
 
 export default async function DashboardLayout({
     children,
@@ -25,7 +24,7 @@ export default async function DashboardLayout({
             <div className="grid min-h-screen w-full md:gird-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
                 <div className="hidden border-r bg-muted/40 md:block">
                     <div className="flex flex-col max-h-screen h-full gap-2">
-                        <div className="h-14 flex items-center border-b px-4 lg:h-[60px] lg:px-6">
+                        <div className="h-14 flex items-center border-b px-2 lg:h-[60px] lg:px-4">
                             <Image
                                 src={Logo}
                                 alt="Logo"
@@ -63,6 +62,7 @@ export default async function DashboardLayout({
                             </DropdownMenu>
                         </div>
                     </header>
+                    <main>{children}</main>
                 </div>
             </div>
         </>
